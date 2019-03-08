@@ -84,19 +84,16 @@ steps:
   description: Clone the respository
   event: issue_comment.created
   actions:
-  - type: octokit
-    method: repos.getClones
-    owner: '%payload.repository.owner.login%'
-    repo: '%payload.repository.name%'
-    action_id: clones
   - type: gate
-    left: '%actions.clones.data.count%'
-    else:
-    - type: respond
-      with: no-clone.md
-      data:
-        theClone: '%actions.clones%'
+    gates:
+    - left: '/You appear to have cloned an empty repository./gm'
+      operator: test
+      right: '%payload.comment.body%'
+    - left: '/, done./gm'
+      operator: test
+      right: '%payload.comment.body%'
+      else:
+      - type: respond
+        with: no-clone.md
   - type: respond
     with: cloned.md
-    data:
-      theClone: '%actions.clones%'
