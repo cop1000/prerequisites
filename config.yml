@@ -56,14 +56,39 @@ steps:
     operator: test
     right: '%payload.issue.body%'
     else:
-    - type: gate
-      left: '/^-\s\[x\]\smacOS%/gm'
-      operator: test
-      right: '%payload.issue.body%'
-      else:
-      - type: respond
-        with: nix.md
     - type: respond
-      with: macos.md
+      with: nix.md
   - type: respond
     with: windows.md
+
+# 3
+- title: Launch your shell
+  description: Launch your shell
+  event: issues.closed
+  actions:
+  - type: gate
+    left: '%payload.issue.title%'
+    operator: ===
+    right: Locate your shell
+  - type: createIssue
+    title: Install Git
+    body: check-git.md
+
+# 4
+- title: Check for Git
+  description: Check for Git
+  event: issue_comment.created
+  actions:
+  - type: gate
+    left: '%payload.issue.title%'
+    operator: ===
+    right: Install Git
+  - type: gate
+    left: '/[2-9]+\.\d+\.\d+/gm'
+    operator: test
+    right: '%payload.comment.body%'
+    else:
+    - type: respond
+      with: no-version.md
+  - type: respond
+    with: version-success.md
