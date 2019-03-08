@@ -37,4 +37,32 @@ steps:
     - left: '%payload.action%'
       operator: ===
       right: labeled
+  - type: createIssue
+    title: Locate your shell
+    body: shell.md
 
+# 2
+- title: Locate your shell
+  description: Locate your shell
+  event: issues.edited
+  actions:
+  - type: gate
+    left: '%payload.issue.title%'
+    operator: ===
+    right: Locate your shell
+  - type: gate
+    left: '- [x] Windows'
+    operator: test
+    right: '%payload.issue.changes.body%'
+    else:
+    - type: gate
+      left: '- [x] macOS'
+      operator: test
+      right: '%payload.issue.changes.body%'
+      else:
+      - type: respond
+        with: nix.md
+    - type: respond
+      with: macos.md
+  - type: respond
+    with: windows.md
