@@ -3,8 +3,7 @@ tagline: Meet all the prerequisites for an upcoming class
 description: Meet all the prerequisites for an upcoming class
 template:
   name: prerequisites
-  repo: scratch
-
+  repo: false
 before:
 # Create issue one for GitHub Pages
 - type: createIssue
@@ -97,3 +96,7 @@ steps:
         with: no-clone.md
   - type: respond
     with: cloned.md
+
+# 5
+# - title: Push to the repository
+#   description: Push to the repository
