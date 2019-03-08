@@ -2,37 +2,39 @@ title: Class prerequisites
 tagline: Meet all the prerequisites for an upcoming class
 description: Meet all the prerequisites for an upcoming class
 template:
-    name: prerequisites
-    repo: scratch
+  name: prerequisites
+  repo: scratch
 
 before:
-  # Create issue one for GitHub Pages
-  - type: createIssue
-    title: Welcome
-    body: welcome.md
-  - type: createIssue
-    title: Supported browser
-    body: browser.md
+# Create issue one for GitHub Pages
+- type: createIssue
+  title: Welcome
+  body: welcome.md
+- type: createIssue
+  title: Supported browser
+  body: browser.md
 
 # Repo artifacts:
 # 1. Issue: Welcome
 # 2. Issue: Supported browser
 
 steps:
-  # 1
-  - title: Use a supported browser
-    description: Use a supported browser
-    event: issues
-    actions:
-    - type: gate
-      left: '%payload.issue.title%'
+
+# 1
+- title: Use a supported browser
+  description: Use a supported browser
+  event: issues
+  actions:
+  - type: gate
+    left: '%payload.issue.title%'
+    operator: ===
+    right: Supported browser
+  - type: gate
+    gates:
+    - left: '%payload.action%'
       operator: ===
-      right: Supported browser
-    - type: gate
-      gates:
-      - left: '%payload.action%'
-        operator: ===
-        right: closed
-      - left: '%payload.action%'
-        operator: ===
-        right: labeled
+      right: closed
+    - left: '%payload.action%'
+      operator: ===
+      right: labeled
+
