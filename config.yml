@@ -91,9 +91,9 @@ steps:
     - left: '/, done./gm'
       operator: test
       right: '%payload.comment.body%'
-      else:
-      - type: respond
-        with: no-clone.md
+    else:
+    - type: respond
+      with: no-clone.md
   - type: respond
     with: cloned.md
 
