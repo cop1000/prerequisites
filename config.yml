@@ -45,26 +45,6 @@ steps:
 # 2
 - title: Locate your shell
   description: Locate your shell
-  event: issues.edited
-  actions:
-  - type: gate
-    left: '%payload.issue.title%'
-    operator: ===
-    right: Locate your shell
-  - type: gate
-    required: false
-    left: '/^-\s\[x\]\sWindows$/gm'
-    operator: test
-    right: '%payload.issue.body%'
-    else:
-    - type: respond
-      with: nix.md
-  - type: respond
-    with: windows.md
-
-# 3
-- title: Launch your shell
-  description: Launch your shell
   event: issues.closed
   actions:
   - type: gate
@@ -75,7 +55,7 @@ steps:
     title: Install Git
     body: check-git.md
 
-# 4
+# 3
 - title: Check for Git
   description: Check for Git
   event: issue_comment.created
