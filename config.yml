@@ -52,6 +52,7 @@ steps:
     operator: ===
     right: Locate your shell
   - type: gate
+    required: false
     left: '/^-\s\[x\]\sWindows$/gm'
     operator: test
     right: '%payload.issue.body%'
