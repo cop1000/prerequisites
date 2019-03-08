@@ -73,3 +73,23 @@ steps:
       with: no-version.md
   - type: respond
     with: version-success.md
+  - type: createIssue
+    title: Try a clone
+    body: try-clone.md
+    data:
+      cloneURL: '%payload.repository.clone_url%'
+
+# 4
+- title: Clone the repository
+  description: Clone the respository
+  event: issue_comment.created
+  actions:
+  - type: octokit
+    method: repos.getClones
+    owner: '%payload.repository.owner.login%'
+    repo: '%payload.repository.name%'
+    action_id: clones
+  - type: respond
+    with: check-clone.md
+    data:
+      theClones: '%actions.clones%'
