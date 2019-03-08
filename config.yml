@@ -41,6 +41,7 @@ steps:
     title: Locate your shell
     body: shell.md
 
+
 # 2
 - title: Locate your shell
   description: Locate your shell
@@ -51,14 +52,14 @@ steps:
     operator: ===
     right: Locate your shell
   - type: gate
-    left: '- [x] Windows'
+    left: '/^-\s\[x\]\sWindows$/gm'
     operator: test
-    right: '%payload.issue.changes.body%'
+    right: '%payload.issue.body%'
     else:
     - type: gate
-      left: '- [x] macOS'
+      left: '/^-\s\[x\]\smacOS%/gm'
       operator: test
-      right: '%payload.issue.changes.body%'
+      right: '%payload.issue.body%'
       else:
       - type: respond
         with: nix.md
