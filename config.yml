@@ -94,5 +94,9 @@ steps:
     else:
     - type: respond
       with: no-clone.md
+      data:
+        theClone: '%actions.clones%'
   - type: respond
     with: cloned.md
+    data:
+      theClone: '%actions.clones%'
