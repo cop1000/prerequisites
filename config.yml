@@ -111,6 +111,13 @@ steps:
   description: Push to the repository
   event: issue_comment.created
   actions:
+  - type: gate
+    left: '/completed with \d+ local objects./gm'
+    operator: test
+    right: '%payload.comment.body%'
+    else:
+    - type: respond
+      with: proxy.md
   - type: respond
     with: pushed.md
   - type: createIssue
