@@ -16,6 +16,10 @@ before:
 # Repo artifacts:
 # 1. Issue: Welcome
 # 2. Issue: Supported browser
+# 3. Issue: Locate your shell
+# 4. Issue: Install Git
+# 5. Issue: Try a clone
+# 6. Issue: Try a push
 
 steps:
 
@@ -94,9 +98,17 @@ steps:
     else:
     - type: respond
       with: no-clone.md
+  - type: createIssue
+    title: Try a push
+    body: push.md
   - type: respond
     with: cloned.md
+  
 
 # 5
-# - title: Push to the repository
-#   description: Push to the repository
+- title: Push to the repository
+  description: Push to the repository
+  event: push
+  actions:
+  - type: respond
+    with: pushed.md
