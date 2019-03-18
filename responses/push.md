@@ -8,5 +8,6 @@ Let's try a push. In your command line:
     ```shell
     git push
     ```
+3. Enter the result of your push command in a comment.
 
-I'll respond when I detect a push. 
+I'll respond when I detect you've commented. 

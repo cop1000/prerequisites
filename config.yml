@@ -20,6 +20,7 @@ before:
 # 4. Issue: Install Git
 # 5. Issue: Try a clone
 # 6. Issue: Try a push
+# 7. Issue: Pick a text editor
 
 steps:
 
@@ -108,7 +109,37 @@ steps:
 # 5
 - title: Push to the repository
   description: Push to the repository
-  event: push
+  event: issue_comment.created
   actions:
   - type: respond
     with: pushed.md
+  - type: createIssue
+    title: Pick a text editor
+    body: editor.md
+
+# 6
+- title: Use a recommended text editor
+  description: Use a recommended text editor
+  event: issues
+  actions:
+  - type: gate
+    left: '%payload.action%'
+    operator: ===
+    right: edited
+    else:
+    - type: createIssue
+      title: Congratulations
+      body: congratulations.md
+  - type: gate
+    left: '/- \[x\] Atom/gm'
+    operator: test
+    right: '%payload.issue.body%'
+    else:
+    - type: gate
+      left: '/- \[x\] Visual Studio Code/gm'
+      operator: test
+      right: '%payload.issue.body%'
+    - type: respond
+      with: vscode.md
+  - type: respond
+    with: atom.md
