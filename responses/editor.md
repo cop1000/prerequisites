@@ -14,3 +14,5 @@ Additionally, we can help you get started with some of these. If you'd like, cho
 - [ ] Visual Studio Code
 
 If you don't want help choosing a text editor, just close this issue.
+
+I'll respond when you close this issue, or when you select one of the options above. 
