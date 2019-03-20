@@ -36,7 +36,7 @@ steps:
     operator: ===
     right: Supported browser
   - type: gate
-    left: '/done|bypass/gm'
+    left: '/done|bypass/gim'
     operator: test
     right: '%payload.comment.body%'
   - type: createIssue
@@ -59,7 +59,7 @@ steps:
     operator: ===
     right: Locate your shell
   - type: gate
-    left: '/done|bypass/gm'
+    left: '/done|bypass/gim'
     operator: test
     right: '%payload.comment.body%'
   - type: createIssue
@@ -83,7 +83,7 @@ steps:
     right: Install Git
   - type: gate
     gates:
-    - left: '/done|bypass/gm'
+    - left: '/done|bypass/gim'
       operator: test
       right: '%payload.comment.body%'
     - left: '/[2-9]+\.\d+\.\d+/gm'
@@ -120,7 +120,7 @@ steps:
     - left: '/, done./gm'
       operator: test
       right: '%payload.comment.body%'
-    - left: '/done|bypass/gm'
+    - left: '/done|bypass/gim'
       operator: test
       right: '%payload.comment.body%'
     else:
@@ -150,7 +150,7 @@ steps:
     - left: '/Writing objects: \d+%.*, done/gm'
       operator: test
       right: '%payload.comment.body%'
-    - left: '/done|bypass/gm'
+    - left: '/done|bypass/gim'
       operator: test
       right: '%payload.comment.body%'
     else:
