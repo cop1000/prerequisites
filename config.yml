@@ -140,7 +140,7 @@ steps:
     operator: ===
     right: Try a push
   - type: gate
-    left: '/completed with \d+ local objects./gm'
+    left: '/Writing objects: \d+%.*, done/gm'
     operator: test
     right: '%payload.comment.body%'
     else:
