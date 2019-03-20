@@ -4,4 +4,4 @@ In [macOS](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd526
 
 For Windows, we recommend using Git Bash. Search your programs for Git Bash. If you don't already have it, not to worry, you'll download it in the next step. For now, feel free to use Powershell or Command Prompt. 
 
-Close this issue to continue. 
+When you're done, type "done" as a comment in this issue. If you'd like bypass this step, type "todo". 

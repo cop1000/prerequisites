@@ -11,4 +11,4 @@ When you've finished installing Git, verify its version by typing the following 
 git --version
 ````
 
-I'll respond when I detect you've commented on this issue.
+If you'd like to bypass this step but continue with the prerequisites, type "done". I'll respond when I detect you've commented on this issue.

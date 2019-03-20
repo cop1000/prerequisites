@@ -5,7 +5,6 @@ template:
   name: prerequisites
   repo: false
 before:
-# Create issue one for GitHub Pages
 - type: createIssue
   title: Supported browser
   body: browser.md
@@ -30,20 +29,16 @@ steps:
 # 1
 - title: Use a supported browser
   description: Use a supported browser
-  event: issues
+  event: issue_comment.created
   actions:
   - type: gate
     left: '%payload.issue.title%'
     operator: ===
     right: Supported browser
   - type: gate
-    gates:
-    - left: '%payload.action%'
-      operator: ===
-      right: closed
-    - left: '%payload.action%'
-      operator: ===
-      right: labeled
+    left: '/done|bypass/gm'
+    operator: test
+    right: '%payload.comment.body%'
   - type: createIssue
     title: Locate your shell
     body: shell.md
@@ -63,6 +58,10 @@ steps:
     left: '%payload.issue.title%'
     operator: ===
     right: Locate your shell
+  - type: gate
+    left: '/done|bypass/gm'
+    operator: test
+    right: '%payload.comment.body%'
   - type: createIssue
     title: Install Git
     body: check-git.md
@@ -83,9 +82,13 @@ steps:
     operator: ===
     right: Install Git
   - type: gate
-    left: '/[2-9]+\.\d+\.\d+/gm'
-    operator: test
-    right: '%payload.comment.body%'
+    gates:
+    - left: '/done|bypass/gm'
+      operator: test
+      right: '%payload.comment.body%'
+    - left: '/[2-9]+\.\d+\.\d+/gm'
+      operator: test
+      right: '%payload.comment.body%'
     else:
     - type: respond
       with: no-version.md
@@ -117,6 +120,9 @@ steps:
     - left: '/, done./gm'
       operator: test
       right: '%payload.comment.body%'
+    - left: '/done|bypass/gm'
+      operator: test
+      right: '%payload.comment.body%'
     else:
     - type: respond
       with: no-clone.md
@@ -140,9 +146,13 @@ steps:
     operator: ===
     right: Try a push
   - type: gate
-    left: '/Writing objects: \d+%.*, done/gm'
-    operator: test
-    right: '%payload.comment.body%'
+    gates:
+    - left: '/Writing objects: \d+%.*, done/gm'
+      operator: test
+      right: '%payload.comment.body%'
+    - left: '/done|bypass/gm'
+      operator: test
+      right: '%payload.comment.body%'
     else:
     - type: respond
       with: proxy.md
