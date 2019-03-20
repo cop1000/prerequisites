@@ -52,7 +52,7 @@ steps:
 # 2
 - title: Locate your shell
   description: Locate your shell
-  event: issues.closed
+  event: issue_comment.created
   actions:
   - type: gate
     left: '%payload.issue.title%'
