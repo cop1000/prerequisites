@@ -8,6 +8,6 @@ We strongly recommend using one of the supported browsers. If you're using IE, o
 
 If your machine is managed by your organization and you are unable to install one of the supported browsers yourself, check with your support team about installing it before you begin class. 
 
-Do you have one of the supported browsers? If so, type "done". If you'd like to continue with the course despite not having the right browser, type "todo". 
+Do you have one of the supported browsers? If so, type "done". If you'd like to continue with the course despite not having the right browser, type "bypass". 
 
 I'll respond when I detect a comment on this issue.

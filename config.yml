@@ -7,28 +7,24 @@ template:
 before:
 - type: createIssue
   title: Supported browser
-  body: browser.md
-  action_id: browserIssue
-- type: createIssue
-  title: Welcome
   body: welcome.md
-  data:
-    url: '%actions.browserIssue.data.html_url%'
+  comments:
+  - browser.md
 
 # Repo artifacts:
-# 1. Issue: Welcome
-# 2. Issue: Supported browser
-# 3. Issue: Locate your shell
-# 4. Issue: Install Git
-# 5. Issue: Try a clone
-# 6. Issue: Try a push
-# 7. Issue: Pick a text editor
+# 1. Issue: Supported browser
+# 2. Issue: Locate your shell
+# 3. Issue: Install Git
+# 4. Issue: Try a clone
+# 5. Issue: Try a push
+# 6. Issue: Pick a text editor
 
 steps:
 
 # 1
 - title: Use a supported browser
   description: Use a supported browser
+  link: '{{ repoUrl }}/issues/1'
   event: issue_comment.created
   actions:
   - type: gate
@@ -52,6 +48,7 @@ steps:
 # 2
 - title: Locate your shell
   description: Locate your shell
+  link: '{{ repoUrl }}/issues/2'
   event: issue_comment.created
   actions:
   - type: gate
@@ -75,6 +72,7 @@ steps:
 # 3
 - title: Check for Git
   description: Check for Git
+  link: '{{ repoUrl }}/issues/3'
   event: issue_comment.created
   actions:
   - type: gate
@@ -106,6 +104,7 @@ steps:
 # 4
 - title: Clone the repository
   description: Clone the respository
+  link: '{{ repoUrl }}/issues/4'
   event: issue_comment.created
   actions:
   - type: gate
@@ -139,6 +138,7 @@ steps:
 # 5
 - title: Push to the repository
   description: Push to the repository
+  link: '{{ repoUrl }}/issues/5'
   event: issue_comment.created
   actions:
   - type: gate
@@ -168,6 +168,7 @@ steps:
 # 6
 - title: Use a recommended text editor
   description: Use a recommended text editor
+  link: '{{ repoUrl }}/issues/6'
   event: issue_comment.created
   actions:
   - type: gate
