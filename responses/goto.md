@@ -1,3 +1,1 @@
-You pushed!
-
 Go to the [next issue]({{ url }}).

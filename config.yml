@@ -7,11 +7,14 @@ template:
 before:
 # Create issue one for GitHub Pages
 - type: createIssue
-  title: Welcome
-  body: welcome.md
-- type: createIssue
   title: Supported browser
   body: browser.md
+  action_id: browserIssue
+- type: createIssue
+  title: Welcome
+  body: welcome.md
+  data:
+    url: '%actions.browserIssue.data.html_url%'
 
 # Repo artifacts:
 # 1. Issue: Welcome
@@ -44,6 +47,11 @@ steps:
   - type: createIssue
     title: Locate your shell
     body: shell.md
+    action_id: shellIssue
+  - type: respond
+    with: goto.md
+    data:
+      url: '%actions.shellIssue.data.html_url%'
 
 
 # 2
@@ -58,6 +66,12 @@ steps:
   - type: createIssue
     title: Install Git
     body: check-git.md
+    action_id: gitIssue
+  - type: respond
+    with: goto.md
+    data:
+      url: '%actions.gitIssue.data.html_url%'
+
 
 # 3
 - title: Check for Git
@@ -75,19 +89,26 @@ steps:
     else:
     - type: respond
       with: no-version.md
-  - type: respond
-    with: version-success.md
   - type: createIssue
     title: Try a clone
     body: try-clone.md
     data:
       cloneURL: '%payload.repository.clone_url%'
+    action_id: cloneIssue
+  - type: respond
+    with: version-success.md
+    data:
+      url: '%actions.cloneIssue.data.html_url%'
 
 # 4
 - title: Clone the repository
   description: Clone the respository
   event: issue_comment.created
   actions:
+  - type: gate
+    left: '%payload.issue.title%'
+    operator: ===
+    right: Try a clone
   - type: gate
     gates:
     - left: '/You appear to have cloned an empty repository./gm'
@@ -102,8 +123,11 @@ steps:
   - type: createIssue
     title: Try a push
     body: push.md
+    action_id: cloneIssue
   - type: respond
     with: cloned.md
+    data:
+      url: '%actions.cloneIssue.data.html_url%'
   
 
 # 5
@@ -112,41 +136,39 @@ steps:
   event: issue_comment.created
   actions:
   - type: gate
+    left: '%payload.issue.title%'
+    operator: ===
+    right: Try a push
+  - type: gate
     left: '/completed with \d+ local objects./gm'
     operator: test
     right: '%payload.comment.body%'
     else:
     - type: respond
       with: proxy.md
-  - type: respond
-    with: pushed.md
   - type: createIssue
     title: Pick a text editor
     body: editor.md
+    action_id: editorIssue
+  - type: respond
+    with: pushed.md
+    data:
+      url: '%actions.editorIssue.data.html_url%'
 
 # 6
 - title: Use a recommended text editor
   description: Use a recommended text editor
-  event: issues
+  event: issue_comment.created
   actions:
   - type: gate
-    left: '%payload.action%'
+    left: '%payload.issue.title%'
     operator: ===
-    right: edited
-    else:
-    - type: createIssue
-      title: Congratulations
-      body: congratulations.md
-  - type: gate
-    left: '/- \[x\] Atom/gm'
-    operator: test
-    right: '%payload.issue.body%'
-    else:
-    - type: gate
-      left: '/- \[x\] Visual Studio Code/gm'
-      operator: test
-      right: '%payload.issue.body%'
-    - type: respond
-      with: vscode.md
+    right: Pick a text editor
+  - type: createIssue
+    title: Congratulations
+    body: congratulations.md
+    action_id: congratulationsIssue
   - type: respond
-    with: atom.md
+    with: goto.md
+    data:
+      url: '%actions.congratulationsIssue.data.html_url%'

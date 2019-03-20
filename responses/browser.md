@@ -10,4 +10,4 @@ If your machine is managed by your organization and you are unable to install on
 
 Do you have one of the supported browsers? If so, close this issue. If not, leave it open and apply the `todo` label. 
 
-I'll respond when I detect this issue has changed. 
+I'll respond when I detect you've either closed this issue or applied the label. 
