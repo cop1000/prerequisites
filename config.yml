@@ -23,7 +23,7 @@ steps:
 
 # 1
 - title: Use a supported browser
-  description: Use a supported browser
+  description: GitHub supports any modern browser, see the list and ensure you're using one.
   link: '{{ repoUrl }}/issues/1'
   event: issue_comment.created
   actions:
@@ -50,7 +50,7 @@ steps:
 
 # 2
 - title: Locate your shell
-  description: Locate your shell
+  description: We'll do all classwork in your shell. Let's locate it. 
   link: '{{ repoUrl }}/issues/2'
   event: issue_comment.created
   actions:
@@ -77,7 +77,7 @@ steps:
 
 # 3
 - title: Check for Git
-  description: Check for Git
+  description: You'll need Git. Let's ensure you have the right version before class.
   link: '{{ repoUrl }}/issues/3'
   event: issue_comment.created
   actions:
@@ -109,7 +109,7 @@ steps:
 
 # 4
 - title: Clone the repository
-  description: Clone the respository
+  description: We'll perform a clone to test that you won't have any issues when the day of  class comes.
   link: '{{ repoUrl }}/issues/4'
   event: issue_comment.created
   actions:
@@ -143,7 +143,7 @@ steps:
 
 # 5
 - title: Push to the repository
-  description: Push to the repository
+  description: Let's perform a test push to your cloned repository. 
   link: '{{ repoUrl }}/issues/5'
   event: issue_comment.created
   actions:
@@ -173,7 +173,7 @@ steps:
 
 # 6
 - title: Use a recommended text editor
-  description: Use a recommended text editor
+  description: Git can be used with any text editor. Let's take a look at some recommended ones. 
   link: '{{ repoUrl }}/issues/6'
   event: issue_comment.created
   actions:
