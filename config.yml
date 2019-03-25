@@ -46,6 +46,7 @@ steps:
     with: goto.md
     data:
       url: '%actions.shellIssue.data.html_url%'
+  - type: closeIssue
 
 
 # 2
@@ -73,6 +74,7 @@ steps:
     with: goto.md
     data:
       url: '%actions.gitIssue.data.html_url%'
+  - type: closeIssue
 
 
 # 3
@@ -107,6 +109,7 @@ steps:
     with: version-success.md
     data:
       url: '%actions.cloneIssue.data.html_url%'
+  - type: closeIssue
 
 # 4
 - title: Clone the repository
@@ -142,7 +145,8 @@ steps:
     with: cloned.md
     data:
       url: '%actions.cloneIssue.data.html_url%'
-  
+  - type: closeIssue
+
 
 # 5
 - title: Push to the repository
@@ -173,6 +177,7 @@ steps:
     with: pushed.md
     data:
       url: '%actions.editorIssue.data.html_url%'
+  - type: closeIssue
 
 # 6
 - title: Use a recommended text editor
@@ -199,3 +204,4 @@ steps:
     with: goto.md
     data:
       url: '%actions.congratulationsIssue.data.html_url%'
+  - type: closeIssue
