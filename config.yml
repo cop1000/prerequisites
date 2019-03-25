@@ -181,6 +181,13 @@ steps:
     left: '%payload.issue.title%'
     operator: ===
     right: Pick a text editor
+  - type: gate
+    left: '/done|bypass/gim'
+    operator: test
+    right: '%payload.comment.body%'
+    else:
+    - type: respond
+      with: catch-all.md
   - type: createIssue
     title: Congratulations
     body: congratulations.md
