@@ -1,5 +1,9 @@
 Let's try a push. In your command line:
 
+1. Navigate into the repository's directory:
+    ```shell
+    cd {{ repoName }}
+    ```
 1. Create an empty commit:
     ```shell
     git commit --allow-empty -m "my empty commit"

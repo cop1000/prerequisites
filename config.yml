@@ -101,6 +101,7 @@ steps:
     body: try-clone.md
     data:
       cloneURL: '%payload.repository.clone_url%'
+      repoName: '%payload.repository.name%'
     action_id: cloneIssue
   - type: respond
     with: version-success.md
@@ -135,6 +136,8 @@ steps:
     title: Try a push
     body: push.md
     action_id: cloneIssue
+    data:
+      repoName: '%payload.repository.name%'
   - type: respond
     with: cloned.md
     data:
