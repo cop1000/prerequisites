@@ -1,4 +1,6 @@
-In class, you'll use your shell. Let's locate it. 
+In class, you'll use your shell. The shell refers to the interactive interface used within your operating system. It is in this shell that you can execute commands and it will understand and perform those actions
+
+Let's locate it. 
 
 In [macOS](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac), Unix, Linux, or similar operating systems, use the native Terminal application.
 
