@@ -1,14 +1,20 @@
-The version you said isn't supported. However, anything above Git version 2.0 will work.
+I wasn't able to detect an acceptable version of Git from your response.
 
-To install Git, either:
-- download directly from git-scm.com,
-- download from an approved software directory in your organization, or
-- ask your organization's support team
+However, any version of Git above 2.0 will work during class.
 
-When you've finished installing Git, verify its version by typing the following into your shell and paste the response in this issue.
+### :keyboard: Activity: Install Git
 
-```shell
-git --version
-````
+1. To install Git, either:
+    - download directly from git-scm.com,
+    - download from an approved software directory in your organization, or
+    - ask your organization's support team
+1. When you've finished installing Git, verify its version by typing the following into your shell.
+    ```shell
+    git --version
+    ````
+1. Paste the response from the command as a comment in this issue.
 
-If you'd like to bypass this step but continue with the prerequisites, type "bypass". I'll respond when I detect you've commented on this issue.
+If you'd like to bypass this step but continue with the prerequisites, type "bypass". 
+
+<hr>
+<h3 align="center">I'll respond when I detect a comment on this issue.</h3>

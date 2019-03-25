@@ -1,3 +1,4 @@
-Great! I was able to confirm that the clone occurred. 
+Great! The response you provided indicates that you were able to clone successfully.
 
-Go to the [next issue]({{ url }}) to continue.
+<hr>
+<h3 align="center">Go to the <a href="{{ url }}">next issue</a> to continue.</h3>

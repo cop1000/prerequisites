@@ -1,3 +1,4 @@
-Great! You've got a good version of Git. Anything above 2.0 works. 
+Great! Your response indicates that you've got a valid version of Git. Any version above 2.0 works. 
 
-Go to the [next issue]({{ url }}) to continue. 
+<hr>
+<h3 align="center">Go to the <a href="{{ url }}">next issue</a>.</h3>

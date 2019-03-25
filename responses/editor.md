@@ -8,7 +8,7 @@ Git will work with any text editor. We recommend one of the following:
 - Notepad++
 - GitPad
 
-Additionally, we can help you get started with some of these. Expand the text editor if you'd like additional instrucitons.
+Additionally, we can help you get started with some of these. Expand the text editor if you'd like additional instructions.
 
 <details>
     <summary>Atom</summary>
@@ -39,4 +39,5 @@ Additionally, we can help you get started with some of these. Expand the text ed
 
 When you're done, just type "done" in an issue comment.
 
-I'll respond when you comment on this issue.
+<hr>
+<h3 align="center">I'll respond when I detect a comment on this issue.</h3>

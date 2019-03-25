@@ -135,6 +135,8 @@ steps:
     else:
     - type: respond
       with: no-clone.md
+      data:
+        sshUrl: '%payload.repository.ssh_url%'
   - type: createIssue
     title: Try a push
     body: push.md
@@ -169,6 +171,8 @@ steps:
     else:
     - type: respond
       with: proxy.md
+      data:
+        repoName: '%payload.repository.name%'
   - type: createIssue
     title: Pick a text editor
     body: editor.md
