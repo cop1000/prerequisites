@@ -35,6 +35,9 @@ steps:
     left: '/done|bypass/gim'
     operator: test
     right: '%payload.comment.body%'
+    else:
+    - type: respond
+      with: catch-all.md
   - type: createIssue
     title: Locate your shell
     body: shell.md
@@ -59,6 +62,9 @@ steps:
     left: '/done|bypass/gim'
     operator: test
     right: '%payload.comment.body%'
+    else:
+    - type: respond
+      with: catch-all.md
   - type: createIssue
     title: Install Git
     body: check-git.md
